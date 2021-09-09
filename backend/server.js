@@ -4,6 +4,7 @@ import colors from 'colors'
 import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 import connectDB from './config/db.js'
 import productRoutes from './routes/productRoutes.js'
+import userRoute from './routes/userRoute.js'
 
 dotenv.config()
 
@@ -11,11 +12,14 @@ connectDB()
 
 const app = express()
 
+app.use(express.json())
+
 app.get('/',(req, res)=>{
     res.send('API is runnig....')
 })
 
 app.use('/api/products', productRoutes)
+app.use('/api/users', userRoute)
 
 app.use(notFound)
 
