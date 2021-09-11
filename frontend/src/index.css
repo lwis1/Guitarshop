@@ -4,6 +4,7 @@ main {
 h1 {
   font-size: 1.8rem;
   padding: 1rem 0;
+  text-align: center;
 }
 h2 {
   font-size: 1.4rem;
@@ -15,3 +16,13 @@ h3 {
 .rating span {
   margin: 0.1rem;
 }
+.row{
+  background-color: rgba(243, 233, 248, 0.925);
+}
+.col{
+  background-color: lemonchiffon;
+}
+.card-body{
+  background-color: rgba(255, 236, 247, 0.883);
+}
+

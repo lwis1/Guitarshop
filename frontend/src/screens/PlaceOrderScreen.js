@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {Row, Col, ListGroup} from 'react-bootstrap'
 import CheckoutSteps from '../components/CheckoutSteps'
 import {useSelector} from 'react-redux'

@@ -30,18 +30,23 @@ const authUser = asyncHandler(async (req, res) => {
 // @route GET /api/user/profile
 // @acces Private
 
-const getUserProfile = asyncHandler(async (req, res) => {
-    const user = await User.findById(req.params._id)
-    if(user) {
+const getUserProfile = asyncHandler( async (req, res) => {
+    const user = await User.findById(req.user._id)
+    if (user) {
         res.json({
             _id: user._id,
             name: user.name,
             email: user.email,
             isAdmin: user.isAdmin,
-            token: generateToken(user._id),
+            
         })
+    } else {
+      res.status(404)
+      throw new Error ('User not found')
     }
 })
+
+
 // @desc    Register a new user
 // @route   POST /api/users
 // @access  Public
@@ -79,7 +84,7 @@ const registerUser = asyncHandler(async (req, res) => {
 // @route   PUT /api/users/profile
 // @access  Private
 const updateUserProfile = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.user._id)
+  const user = await User.findById( req.user._id)
 
   if (user) {
     user.name = req.body.name || user.name
