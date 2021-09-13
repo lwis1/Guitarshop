@@ -24,7 +24,7 @@ const shippingAddressFromStorage = localStorage.getItem('shippingAddress') ? JSO
 
 const initialState = {
     cart: { cartItems: cartItemsFromStorage,
-    shippingAddeess:shippingAddressFromStorage,},
+    shippingAddeess:shippingAddressFromStorage},
     userLogin: { userInfo: userInfoFromStorage}
 }
 
