@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Table, Button } from 'react-bootstrap'
+import { Table, Button,Col,Row } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
 import Loader from '../components/Loader'
@@ -31,16 +31,20 @@ const UserListScreen = ({ history}) => {
     }
     return (
         <>
+            <br></br>
+            <Row className='align-items-center' style={{backgroundColor:"#FDFEFE"}}><Col></Col><Col>
             <h1>Users</h1>
+            </Col><Col></Col></Row>
+            <br></br>
             {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
-                <Table striped bordered hover responsive className='table-sm'>
-                    <thead>
+                <Table striped bordered hover responsive className='table-sm' style={{borderCollapse: "separate",borderSpacing:"0 15px"}}>
+                    <thead style={{backgroundColor:"#D5F5E3"}}>
                         <tr>
                             <th>ID</th>
                             <th>NAME</th>
                             <th>EMAIL</th>
                             <th>ADMIN</th>
-                            <th></th>
+                            <th>EDIT/DELETE</th>
                         </tr>
                     </thead>
                     <tbody>
