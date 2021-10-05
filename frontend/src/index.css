@@ -16,13 +16,38 @@ h3 {
 .rating span {
   margin: 0.1rem;
 }
-.row{
+.row {
   background-color: rgba(243, 233, 248, 0.925);
 }
-.col{
+.col {
   background-color: lemonchiffon;
 }
-.card-body{
+.card-body {
   background-color: rgba(255, 236, 247, 0.883);
 }
 
+/* carousel */
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+  display: flex;
+}
+.carousel-caption {
+  position: absolute;
+  top: 0;
+}
+
+.carousel-caption h2 {
+  color: rgba(245, 255, 109, 0.911);
+}
+
+.carousel img {
+  justify-content: center;
+  height: 300px;
+  padding: 30px;
+  margin: 40px;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+}
