@@ -80,7 +80,8 @@ const OrderScreen = ({ match, history }) => {
 
     return (
         loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : <>
-        <h1>Order: {order._id}</h1>
+        <h2>Order: {order._id.substring(0, 19)} </h2>
+        <h2>date : {order.createdAt.substring(0, 19)}</h2>
         <Row>
         <Col md={8}>
           <ListGroup variant='flush'>

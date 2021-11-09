@@ -25,11 +25,12 @@ const ShippingScreen = ({ history }) => {
 
     return (
         <FormContainer>
+            <div style={{backgroundColor:"white",boxShadow: "12px 12px 2px 1px rgba(0, 0, 255, .2)",borderRadius: "30px"}}>
             <CheckoutSteps step1 step2 />
-            <h1>Shipping</h1>
+            <h2 style={{borderRadius: "30px"}}>Shipping</h2>
             <Form onSubmit={submitHandler}>
                 <Form.Group controlId='address'>
-                <Form.Label>Address</Form.Label>
+                <Form.Label style={{ display: "flex", justifyContent: "center", fontSize:"1.2rem",color:"orangered",textDecoration: "underline"}}> Address :</Form.Label>
                 <Form.Control type="text"
                 placeholder='Enter address'
                 value={address}
@@ -37,7 +38,7 @@ const ShippingScreen = ({ history }) => {
                 onChange={ (e)=> setAddress(e.target.value)}></Form.Control>
                 </Form.Group> 
 
-                <Form.Label>city</Form.Label>
+                <Form.Label style={{ display: "flex", justifyContent: "center", fontSize:"1.2rem",color:"orangered",textDecoration: "underline"}}> City :</Form.Label>
                 <Form.Group controlId="city">
                 <Form.Control type="text"
                 placeholder='Enter city'
@@ -47,7 +48,7 @@ const ShippingScreen = ({ history }) => {
                 </Form.Group>
                 
                 <Form.Group controlId="postalCode">
-                <Form.Label>Postal Code</Form.Label>
+                <Form.Label style={{ display: "flex", justifyContent: "center", fontSize:"1.2rem",color:"orangered",textDecoration: "underline"}}> Postal Code :</Form.Label>
                 <Form.Control type="text"
                 placeholder='Enter postal code'
                 value={postalCode}
@@ -55,21 +56,21 @@ const ShippingScreen = ({ history }) => {
                 onChange={(e)=> setPostalCode(e.target.value)}></Form.Control> </Form.Group>
                 
                 <Form.Group controlId="country">
-                <Form.Label>Country</Form.Label>
+                <Form.Label style={{ display: "flex", justifyContent: "center", fontSize:"1.2rem",color:"orangered",textDecoration: "underline"}}>Country :</Form.Label>
                 <Form.Control type="text"
                 placeholder='Enter Country'
                 value={country}
                 required
                 onChange={(e)=> setCountry(e.target.value)}></Form.Control> </Form.Group>
-                
-                
                 <br></br>
-                <div className="d-grid gap-2">
-                    <Button type='submit' variant="outline-success" size="sm">
-                        <h3>Continue</h3>
+                    <div className="d-grid gap-2" >
+                    <Button type='submit' variant='outline-success'>
+                        <i class="fas fa-arrow-alt-circle-right"> C O N T I N U E </i>
                     </Button>
-                </div>
+                    </div>
+                    <br />
             </Form>
+            </div>
         </FormContainer>
     )
 }

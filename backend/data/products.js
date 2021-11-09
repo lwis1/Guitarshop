@@ -1,12 +1,12 @@
 const products = [
   {
-    name: 'Airpods Wireless Bluetooth Headphones',
+    name: 'EAGLETONE HOBO NATURELLE',
     image: '/images/airpods.jpg',
     description:
-      'Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working',
-    brand: 'Apple',
-    category: 'Electronics',
-    price: 89.99,
+      'At the beach, in a park, at home, in rehearsal, in the studio or on stage, the Eagletone Hobo travel guitar adapts to all situations and all environments.Compact size guitar without stifling the sounds, the Hobo brings playing comfort and projection thanks to its solid spruce top and mahogany body, all in a format that is easily transportable in its bag.',
+    brand: 'HOBO NT',
+    category: 'Guitar',
+    price: 149.00,
     countInStock: 3,
     rating: 0,
     numReviews: 0,
@@ -15,7 +15,7 @@ const products = [
     name: 'iPhone 11 Pro 256GB Memory',
     image: '/images/phone.jpg',
     description:
-      'Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life',
+      'In a park, at the beach, at home, in rehearsal, in the studio, on stage ... The Eagletone HOBO travel guitar adapts to all situations and all environments, and accompanies you wherever you go!Dont be fooled by its compact size and lightness: from the first notes, the HOBO reveals an astonishing projection that fears neither the outdoors nor small stages.And if it lacks a little volume, switch to the electro-acoustic version equipped with a Fishman Flex system with double capture for natural sounds: Eagletone HOBO ELECTRO-BLACK',
     brand: 'Apple',
     category: 'Electronics',
     price: 599.99,

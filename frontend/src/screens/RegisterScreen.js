@@ -37,14 +37,18 @@ const RegisterScreen = ({ location, history }) => {
   }
 
   return (
+    
     <FormContainer>
-      <h1>Sign Up</h1>
+      <br />  
+      <div style={{backgroundColor:"white",boxShadow: "12px 12px 2px 1px rgba(0, 0, 255, .2)",borderRadius: "30px"}}>
+      <h2 style={{borderRadius: "30px"}}>Sign Up</h2>
+      <br /> 
       {message && <Message variant='danger'>{message}</Message>}
       {error && <Message variant='danger'>{error}</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId='name'>
-          <Form.Label>Name</Form.Label>
+          <Form.Label style={{ display: "flex", justifyContent: "center", fontSize:"1.2rem",color:"orangered",textDecoration: "underline"}}>Name</Form.Label>
           <Form.Control
             type='name'
             placeholder='Enter name'
@@ -54,7 +58,7 @@ const RegisterScreen = ({ location, history }) => {
         </Form.Group>
 
         <Form.Group controlId='email'>
-          <Form.Label>Email Address</Form.Label>
+          <Form.Label style={{ display: "flex", justifyContent: "center", fontSize:"1.2rem",color:"orangered",textDecoration: "underline"}}>Email Address</Form.Label>
           <Form.Control
             type='email'
             placeholder='Enter email'
@@ -64,7 +68,7 @@ const RegisterScreen = ({ location, history }) => {
         </Form.Group>
 
         <Form.Group controlId='password'>
-          <Form.Label>Password</Form.Label>
+          <Form.Label style={{ display: "flex", justifyContent: "center", fontSize:"1.2rem",color:"orangered",textDecoration: "underline"}}>Password</Form.Label>
           <Form.Control
             type='password'
             placeholder='Enter password'
@@ -74,7 +78,7 @@ const RegisterScreen = ({ location, history }) => {
         </Form.Group>
 
         <Form.Group controlId='confirmPassword'>
-          <Form.Label>Confirm Password</Form.Label>
+          <Form.Label style={{ display: "flex", justifyContent: "center", fontSize:"1.2rem",color:"orangered",textDecoration: "underline"}}>Confirm Password</Form.Label>
           <Form.Control
             type='password'
             placeholder='Confirm password'
@@ -82,20 +86,26 @@ const RegisterScreen = ({ location, history }) => {
             onChange={(e) => setConfirmPassword(e.target.value)}
           ></Form.Control>
         </Form.Group>
+        <br />
+        <br /> 
 
-        <Button type='submit' variant='primary' >
-          Register
+        <div className="d-grid gap-2" >
+        <Button type='submit' variant='outline-success'>
+        <i class="fas fa-registered">  r e g i s t e r </i>
         </Button>
+        </div>
       </Form>
 
       <Row className='py-3'>
-        <Col>
+        <Col style={{ display: "flex", justifyContent: "center", fontSize:"1.2rem",color:"orangered",textDecoration: "underline"}}>
           Have an Account?{' '}
           <Link to={redirect ? `/login?redirect=${redirect}` : '/login'} >
             Login
           </Link>
         </Col>
       </Row>
+      </div>
+      <br />
     </FormContainer>
   )
 }

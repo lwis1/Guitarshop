@@ -25,11 +25,13 @@ import { savePaymentMethod } from '../actions/cartActions'
 
   return ( 
     <FormContainer>
+      <div style={{backgroundColor:"white",boxShadow: "12px 12px 2px 1px rgba(0, 0, 255, .2)",borderRadius: "30px"}}>
       <CheckoutSteps step1 step2 step3 />
-      <h1>Payment Method</h1>
+      <h2 style={{borderRadius: "30px"}}>Payment Method</h2>
+      <br />
       <Form onSubmit={submitHandler}>
         <Form.Group>
-          <Form.Label as='legend'>Select Method</Form.Label>
+          <Form.Label as='legend'> Select Method :</Form.Label>
           <Col>
             <Form.Check
               type='radio'
@@ -40,21 +42,26 @@ import { savePaymentMethod } from '../actions/cartActions'
               checked
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></Form.Check>
-            <Form.Check
+            {/* <Form.Check
               type='radio'
               label='Stripe'
               id='Stripe'
               name='paymentMethod'
               value='Stripe'
               onChange={(e) => setPaymentMethod(e.target.value)}
-            ></Form.Check> 
+            ></Form.Check>  */}
           </Col>
         </Form.Group>
 
-        <Button type='submit' variant='primary'>
-          Continue
-        </Button>
-      </Form>
+        <br></br>
+                    <div className="d-grid gap-2" >
+                    <Button type='submit' variant='outline-success'>
+                    <i class="fab fa-pied-piper-pp"> continue</i> 
+                    </Button>
+                    </div>
+                    <br />
+        
+      </Form></div>
     </FormContainer>
   )
   }

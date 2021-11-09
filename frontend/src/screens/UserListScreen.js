@@ -32,22 +32,22 @@ const UserListScreen = ({ history}) => {
     return (
         <>
             <br></br>
-            <Row className='align-items-center' style={{backgroundColor:"#FDFEFE"}}><Col></Col><Col>
-            <h1>Users</h1>
+            <Row className='align-items-center'><Col></Col><Col>
+            <h2>Users</h2>
             </Col><Col></Col></Row>
             <br></br>
             {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
-                <Table striped bordered hover responsive className='table-sm' style={{borderCollapse: "separate",borderSpacing:"0 15px"}}>
-                    <thead style={{backgroundColor:"#D5F5E3"}}>
+                <Table striped bordered hover responsive className='table-sm'style={{borderCollapse: "separate",borderSpacing:"0 5px"}}>
+                    <thead >
                         <tr>
-                            <th>ID</th>
-                            <th>NAME</th>
-                            <th>EMAIL</th>
-                            <th>ADMIN</th>
-                            <th>EDIT/DELETE</th>
+                            <th style={{backgroundColor:"white" }}><i class="fas fa-fingerprint"> I D</i></th>
+                            <th style={{backgroundColor:"silver" }}><i class="fas fa-ghost"> N A M E</i></th>
+                            <th style={{backgroundColor:"white" }}><i class="fas fa-inbox"> E M A I L</i></th>
+                            <th style={{backgroundColor:"silver" }}><i class="fas fa-user-cog"> A D M I N</i></th>
+                            <th style={{backgroundColor:"white" }} ><i className="fas fa-calendar-week">EDIT/DELETE</i></th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style={{backgroundColor:"white" }}>
                         {users.map(user => (
                             <tr key={user._id}>
                                 <td>{user._id}</td>

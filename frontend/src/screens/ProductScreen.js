@@ -46,17 +46,18 @@ const ProductScreen = ({ history, match }) => {
     }
     return( 
         <>
-            <Link className='btn btn-dark my-3'  to='/'>
-                go back
+            <Link  to='/'>
+                <Button variant="link" size="sm"> go back</Button>
             </Link>
+            
             {loading ? <Loader/> : error ? <Message variant='danger'>{error}</Message> : (
                 <>
                 <Meta title={product.name}/>
-                <Row>
+                <Row style={{backgroundColor:"white"}}>
                 <Col md={6}>
-                    <Image src={product.image} alt={product.name} fluid />
+                    <Image src={product.image} alt={product.name} fluid/>
                 </Col>
-                <Col md={3}>
+                <Col md={6}>
                     <ListGroup variant='flush'>
                         <ListGroup.Item>
                             <h3>{product.name}</h3>
@@ -80,7 +81,25 @@ const ProductScreen = ({ history, match }) => {
                                         <strong>${product.price}</strong>
                                     </Col>
                                 </Row>
+                                
+                                
                             </ListGroup.Item>
+                            <ListGroup.Item><Row>
+                                    <Col>
+                                        Category:
+                                    </Col>
+                                    <Col>
+                                        <strong>{product.category}</strong>
+                                    </Col>
+                                </Row></ListGroup.Item>
+                            <ListGroup.Item><Row>
+                                    <Col>
+                                        Brand:
+                                    </Col>
+                                    <Col>
+                                        <strong>{product.brand}</strong>
+                                    </Col>
+                                </Row></ListGroup.Item>
                             <ListGroup.Item>
                                 <Row>
                                     <Col>
@@ -95,8 +114,8 @@ const ProductScreen = ({ history, match }) => {
                             {product.countInStock > 0 && (
                     <ListGroup.Item>
                       <Row>
-                        <Col>Qty</Col>
-                        <Col>
+                        <Col md={6}>Qty</Col>
+                        <Col md={1}>
                           <Form.Control
                             as='select'
                             value={qty}
@@ -111,22 +130,24 @@ const ProductScreen = ({ history, match }) => {
                             )}
                           </Form.Control>
                         </Col>
+                        <Col md={5} />
                       </Row>
                     </ListGroup.Item>
                   )}
 
-                            <ListGroup.Item>
-                                <Button className='btn-block ' type='button' disabled={product.countInStock === 0} onClick={addToCartHandler} >
+                            
+                                <Button type='submit' variant="success" size="bg"  disabled={product.countInStock === 0} onClick={addToCartHandler} >
                                     Add To Cart
                                 </Button>
-                            </ListGroup.Item>
+                            
                         </ListGroup>
                     </Card>
                 </Col>
             </Row>
+            <br></br>
             <Row>
-                <Col md={6}>
-                    <h2>Reviews</h2>
+                <Col >
+                    <h1>Reviews</h1>
                     {product.reviews.length === 0 && <Message>No reviews</Message>}
                     <ListGroup>
                         {product.reviews.map(review => (
@@ -137,8 +158,9 @@ const ProductScreen = ({ history, match }) => {
                                 <p>{review.comment}</p>
                             </ListGroup.Item>
                         ))}
-                            <ListGroup.Item>
-                                <h2>Write a Customer Review</h2>
+                                <br></br>
+                                <h1>Write a Customer Review</h1>
+                                <ListGroup.Item>
                                 {errorProductReview && (<Message variant='danger'>{errorProductReview}</Message>)}
                                 {userInfo ? (<Form onSubmit={submitHandler}>
                                     <Form.Group controlId='rating'>
@@ -155,7 +177,7 @@ const ProductScreen = ({ history, match }) => {
                                     </Form.Group>
                                     <Form.Group controlId='comment'>
                                         <Form.Label>Comment</Form.Label>
-                                        <Form.Control as='textarea' row='3' value={comment} onChange={(e) => setComment(e.target.value)}></Form.Control>
+                                        <Form.Control as='textarea' row='30' value={comment} onChange={(e) => setComment(e.target.value)}></Form.Control>
                                     </Form.Group>
                                     <Button type='submit' variant='primary'>
                                         Submit

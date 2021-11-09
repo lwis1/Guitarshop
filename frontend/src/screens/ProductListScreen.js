@@ -44,13 +44,13 @@ const ProductListScreen = ({ history, match}) => {
         dispatch(createProduct())
     }
     return (
-        <><br></br>
-            <Row className='align-items-center' style={{backgroundColor:"#FDFEFE"}}>
+        <>
+            <Row className='align-items-center'>
                 <Col>
-                    <h1>Products</h1>
+                    <h2>Products</h2>
                 </Col>
                 <Col></Col><Col></Col>
-                <Col className='text-right' style={{backgroundColor:"#FDFEFE"}}>
+                <Col className='text-right'>
                     <Button className='my-3' onClick={createProductHandler}>
                         <i className='fas fa-plus'> {' '} </i> Create Product
                     </Button>
@@ -63,25 +63,27 @@ const ProductListScreen = ({ history, match}) => {
             {errorCreate && <Message variant='danger'>{errorCreate}</Message>}
             {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
                 <>
-                <Table striped bordered hover responsive className='table-sm' style={{borderCollapse: "separate",borderSpacing:"0 15px"}}>
-                    <thead style={{backgroundColor:"#D5F5E3"}}>
+                <Table striped bordered hover responsive className='table-sm'style={{borderCollapse: "separate",borderSpacing:"0 5px"}}>
+                    <thead >
                         <tr>
-                            <th>ID</th>
-                            <th>NAME</th>
-                            <th>Price</th>
-                            <th>CATEGORY</th>
-                            <th>BRAND</th>
-                            <th>EDIT/DELETE</th>
+                            <th style={{backgroundColor:"white" }}><i class="fas fa-passport"> I D</i></th>
+                            <th style={{backgroundColor:"silver" }}><i class="fas fa-signature"> N A M E</i></th>
+                            <th style={{backgroundColor:"white" }}><i class="fas fa-money-bill-wave"> P R I C E </i></th>
+                            <th style={{backgroundColor:"silver" }}><i class="fas fa-guitar"> C A T E G O R Y</i></th>
+                            <th style={{backgroundColor:"white" }}><i class="fab fa-bandcamp"> B R A N D</i></th>
+                            <th style={{backgroundColor:"silver" }}>
+                                <i className="fas fa-calendar-week">EDIT/DELETE</i>
+                            </th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody style={{backgroundColor:"white" }}>
                         {products.map(product => (
                             <tr key={product._id}>
-                                <td>{product._id}</td>
+                                <td style={{backgroundColor:"white" }}>{product._id}</td>
                                 <td>{product.name}</td>
-                                <td>{product.price}</td>
+                                <td style={{backgroundColor:"white" }}>{product.price}</td>
                                 <td>{product.category}</td>
-                                <td>{product.brand}</td>
+                                <td style={{backgroundColor:"white" }}>{product.brand}</td>
                                 <td>
                                     <LinkContainer to={`/admin/product/${product._id}/edit`}>
                                         <Button variant='light' className='btn-sm'>

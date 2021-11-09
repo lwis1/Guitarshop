@@ -1,53 +1,136 @@
 main {
   min-height: 80vh;
+  background-color: #aeaefc;
 }
 h1 {
-  font-size: 1.8rem;
-  padding: 1rem 0;
+  font-family: "Lucida Console", Courier, monospace;
+  font-size: 60px !important;
+  font-style: oblique;
+  font-weight: 900;
+  background-image: url("https://i.pinimg.com/600x315/0f/9a/a0/0f9aa0ff3aa5f7a97996c75ac98a81f5.jpg");
+  background-size: 25% !important;
+  padding: 0rem 0;
   text-align: center;
+  color: orangered !important;
+  border-radius: "30px";
+}
+.Form.label {
+  display: "flex";
+  justify-content: "center";
+  font-size: "1.2rem";
+  color: "orangered";
+  text-decoration: "underline";
 }
 h2 {
+  font-family: "Times New Roman", Times, serif;
   font-size: 1.4rem;
+  /* border-style: ridge; */
+  background-image: url("https://i.ytimg.com/vi/nyifaCRa9P0/maxresdefault.jpg");
+  background-size: 35% !important;
   padding: 0.5rem 0;
+  font-style: italic;
+  text-align: center;
+  color: rgb(238, 204, 218) !important;
+  text-shadow: 4px 4px 8px rgb(44, 5, 182) !important;
 }
 h3 {
   padding: 1rem 0;
 }
+h4 {
+  font-family: "lobster", cursive;
+  font-size: 4.4rem !important;
+  text-shadow: 4px 4px 4px #aeaefc;
+  /* color: rgb(251, 74, 5) !important; */
+  font-style: oblique;
+  text-align: center;
+  font-weight: 1100;
+  color: rgba(59, 132, 173, 0.781) !important;
+  /* text-decoration: underline; */
+}
+
 .rating span {
   margin: 0.1rem;
 }
-.row {
-  background-color: rgba(243, 233, 248, 0.925);
-}
-.col {
-  background-color: lemonchiffon;
-}
+
 .card-body {
   background-color: rgba(255, 236, 247, 0.883);
 }
+.navbar-brand {
+  font-family: "lobster", cursive;
+  text-shadow: 4px 4px 8px orange;
+  text-align: center;
+}
+Footer {
+  background-image: url("https://media.istockphoto.com/vectors/rock-band-silhouette-on-stage-vector-id886153238?k=20&m=886153238&s=170667a&w=0&h=Jv4-1q6UdI5KM5NArtlWE8DIGwXUSvD28oF3iiGlF8Y=");
+
+  text-align: center;
+  color: darkorange;
+}
 
 /* carousel */
-.carousel-item-next,
-.carousel-item-prev,
+.carousel {
+  background-image: url("https://wallpaperbat.com/img/54410-rock-wallpaperdownload-free-awesome-hd-background.jpg");
+  background-repeat: repeat;
+  background-size: 100%;
+  max-height: 355px;
+  border-radius: 150px;
+}
+.carousel-inner .carousel-item {
+  opacity: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: block;
+  position: absolute;
+}
+.carousel-inner .carousel-item:first-of-type {
+  position: relative;
+}
+.carousel-inner .active {
+  opacity: 10;
+}
+/* .carousel-item-next,
+.carousel-item-prev, */
 .carousel-item.active {
   display: flex;
 }
 .carousel-caption {
+  box-shadow: 5px 5px 10px 31px #aeaefc;
   position: absolute;
-  top: 0;
+  top: 20px;
 }
 
 .carousel-caption h2 {
-  color: rgba(245, 255, 109, 0.911);
+  font-family: "lobster", cursive;
+  font-size: 2rem;
+  font-style: italic;
+  text-shadow: 20px 4px 25px darkorange;
+  text-align: center;
+  color: gainsboro;
 }
 
 .carousel img {
-  justify-content: center;
-  height: 300px;
-  padding: 30px;
-  margin: 40px;
-  border-radius: 50%;
+  /* justify-content: center; */
+  height: 350px;
+  padding: 0px;
+  margin: 0px;
+  border-radius: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 80px;
+  margin-top: 0px;
+  box-shadow: 3px 3px 10px 20px silver;
+}
+
+.carousel-item-next {
+  transition: transform 2s ease-in-out;
+}
+
+.carousel-item-prev {
+  transition: transform 2s ease-in-out;
+}
+.carousel-item-left {
+  transform: translateX(-50%);
+}
+.carousel-item-right {
+  transform: translateX(50%);
 }

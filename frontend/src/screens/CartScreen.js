@@ -28,9 +28,10 @@ const CartScreen = ({ match, location, history}) => {
         history.push('/login?redirect=shipping')
     }
     return (
+        <div style={{backgroundColor:"white",boxShadow: "12px 12px 2px 1px rgba(0, 0, 255, .2)"}}>
         <Row>
             <Col md={8}>
-                <h1>Shopping Cart</h1>
+                <h2>Shopping Cart</h2>
                 {cartItems.lenght === 0 ? (
                     <Message>
                         Your Cart is empty
@@ -44,7 +45,7 @@ const CartScreen = ({ match, location, history}) => {
                                         <Image src={item.image} alt={item.name} fluid rounded />
                                     </Col>
                                     <Col md={3}>
-                                        <Link to={`/products/${item.product}`}>{item.name}</Link>
+                                        <Link to={`/product/${item.product}`}>{item.name}</Link>
                                     </Col>
                                     <Col md={2}>{item.price}</Col>
                                     <Col md={2}>
@@ -52,15 +53,15 @@ const CartScreen = ({ match, location, history}) => {
                             as='select'
                             value={item.qty}
                             onChange={(e) => dispatch(addToCart(item.product,Number(e.target.value)))}
-                          >
+                        >
                             {[...Array(item.countInStock).keys()].map(
-                              (x) => (
-                                <option key={x + 1} value={x + 1}>
-                                  {x + 1}
-                                </option>
-                              )
+                                (x) => (
+                                    <option key={x + 1} value={x + 1}>
+                                        {x + 1}
+                                    </option>
+                                )
                             )}
-                          </Form.Control>
+                        </Form.Control>
                                     </Col>
                                     <Col md={2}>
                                         <Button type='button' variant='black' onClick={() => removeFromCartHandler(item.product)}>
@@ -78,12 +79,12 @@ const CartScreen = ({ match, location, history}) => {
                     <ListGroup variant='flush'>
                         <ListGroup.Item>
                             <h2>
-                                Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) Items :
+                                Total ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) :
                             </h2>
                             $({cartItems.reduce( (acc, item) => acc + item.qty * item.price, 0).toFixed(2)})
                         </ListGroup.Item>
                         <ListGroup.Item>
-                            <Button type='button' className='btn-block' disabled={cartItems.length ===0} onClick={checkOutHandler}>
+                            <Button type='button' className='btn-block' disabled={cartItems.length === 0} onClick={checkOutHandler}>
                                 Process To checkout
                             </Button>
                         </ListGroup.Item>
@@ -91,6 +92,7 @@ const CartScreen = ({ match, location, history}) => {
                 </Card>
             </Col>
         </Row>
+    </div>    
     )
 }
 

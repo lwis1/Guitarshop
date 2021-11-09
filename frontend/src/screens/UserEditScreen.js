@@ -46,17 +46,18 @@ const UserEditScreen = ({ match, history }) => {
 
     return (
         <>
-            <Link to='/admin/userlist' className='btn btn-light my-3'>
+            <Link to='/admin/userlist' className='btn btn-link my-3'>
                 Go Back
             </Link>
             <FormContainer>
-            <h1>Edit User</h1>
+            <div style={{backgroundColor:"white",boxShadow: "12px 12px 2px 1px rgba(0, 0, 255, .2)",borderRadius: "30px"}}>
+            <h2 style={{borderRadius: "30px"}}>Edit User</h2>
             {loadingUpdate && <Loader />}
             {errorUpdate && <Message variantt='danger'>{errorUpdate}</Message>}
             {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
                 <Form onSubmit={submitHandler}>
                 <Form.Group controlId='name'>
-                    <Form.Label>Name</Form.Label>
+                    <Form.Label style={{ display: "flex", justifyContent: "center", fontSize:"1.2rem",color:"orangered",textDecoration: "underline"}}>Name</Form.Label>
                     <Form.Control
                         type='name'
                         placeholder='Enter name'
@@ -66,7 +67,7 @@ const UserEditScreen = ({ match, history }) => {
                     </Form.Group>
 
                 <Form.Group controlId='email'>
-                    <Form.Label>Email Address</Form.Label>
+                    <Form.Label style={{ display: "flex", justifyContent: "center", fontSize:"1.2rem",color:"orangered",textDecoration: "underline"}}>Email Address</Form.Label>
                     <Form.Control
                         type='email'
                         placeholder='Enter email'
@@ -77,7 +78,7 @@ const UserEditScreen = ({ match, history }) => {
 
                 <br></br>
 
-                <Form.Group controlId='isadmin'>
+                <Form.Group controlId='isadmin' style={{ display: "flex", justifyContent: "center", fontSize:"1.2rem",color:"orangered",textDecoration: "underline"}}>
                     <Form.Check
                         type='checkbox'
                         label='Is Admin'
@@ -86,16 +87,18 @@ const UserEditScreen = ({ match, history }) => {
                     ></Form.Check>
                 </Form.Group>
 
-                <br></br>
+                <br />
 
-                <div className="d-grid gap-2">
-                    <Button type='submit' variant="outline-success" size="sm">
-                        <h3>Update</h3>
+                <div className="d-grid gap-2" >
+                    <Button type='submit' variant='outline-success'>
+                        <i class="fas fa-pencil-alt"> u p d a t e </i>
                     </Button>
                 </div>
+                <br />
             </Form>
-        ) }
             
+        ) }
+        </div>
     </FormContainer>
     </>
     )

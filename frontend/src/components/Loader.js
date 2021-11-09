@@ -1,17 +1,30 @@
 import React from 'react'
-import {Spinner} from 'react-bootstrap'
+// import {Spinner} from 'react-bootstrap'
+import { CDBSpinner, CDBContainer } from "cdbreact";
 const Loader = () => {
     return (
-        <Spinner animation='border'
-        role='status'
-        style={{
-            width:'100px',
-            height:'100px',
+        <>
+        <br /><br /><br /><br /><br />
+        <CDBContainer>
+            <CDBSpinner multicolor style={{
+            width:'80px',
+            height:'80px',
             margin:'auto',
-            display:'block',
-        }}>
-            <span className='sr-only'>Loading...</span>
-        </Spinner>
+            display: "flex", 
+            justifyContent: "center",
+        }}/>
+        </CDBContainer>
+        {/* <Spinner animation='border'
+        role='status'
+        variant="success"
+        style={{
+            width:'80px',
+            height:'80px',
+            margin:'auto',
+            display: "flex", 
+            justifyContent: "center",
+        }} /> */}
+        </>        
     )
 }
 

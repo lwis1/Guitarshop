@@ -18,6 +18,18 @@ import UserEditScreen from './screens/UserEditScreen'
 import ProductListScreen from './screens/ProductListScreen'
 import ProductEditScreen from "./screens/ProductEditScreen"
 import OrderListScreen from "./screens/OrderListScreen"
+import Sidebar from "./components/Sidebar"
+import AboutScreen from "./screens/AboutScreen"
+import FilterScreen from "./screens/FilterScreen"
+import Acoustic from "./screens/Acoustic";
+import Basses from "./screens/Basses"
+import Classical from "./screens/Classical"
+import Others from "./screens/Others"
+import Accessoir from "./screens/Accesoir"
+import Pack from "./screens/Pack"
+import Electric from "./screens/Electric"
+import ForBiginner from "./screens/ForBiginner"
+import LeftHanded from "./screens/LeftHanded"
 
 function App() {
   return (
@@ -44,9 +56,21 @@ function App() {
       <Route path='/orders/:id' component={OrderScreen}/>
       <Route path='/page/:pageNumber' component={HomeScreen} exact />
       <Route path='/' component={HomeScreen} exact />
+      <Route path='/about' component={AboutScreen} exact />
+      <Route path='/filter' component={FilterScreen} exact />
+      <Route path='/products/category/acoustic' component={Acoustic} exact />
+      <Route path='/products/category/classical' component={Classical} exact />
+      <Route path='/products/category/others' component={Others} exact />
+      <Route path='/products/category/basses' component={Basses} exact />
+      <Route path='/products/category/forbiginner' component={ForBiginner} exact />
+      <Route path='/products/category/electric' component={Electric} exact />
+      <Route path='/products/category/accessoir' component={Accessoir} exact />
+      <Route path='/products/category/pack' component={Pack} exact />
+      <Route path='/products/category/lefthanded' component={LeftHanded} exact />
+
       </Container>
-      
-    </main>
+    </main>  
+    <Sidebar /> 
     <Footer />
     </Router>
   );

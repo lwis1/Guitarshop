@@ -11,6 +11,7 @@ import Loader from '../components/Loader'
 import Meta from '../components/Meta'
 
 
+
 const HomeScreen = ({match}) => {
     const keyword = match.params.keyword
 
@@ -26,7 +27,7 @@ const HomeScreen = ({match}) => {
     return (
         <>
         <Meta />
-        {!keyword ? <ProductCarousel /> : <Link to='/' className='btn btn-light'>Go Back</Link>}
+        {!keyword ? <> <ProductCarousel /> <br/> </>: <Link to='/' className='btn btn-link'>Go Back</Link>}
         {
         loading ? 
         (<Loader></Loader>) 
@@ -34,7 +35,7 @@ const HomeScreen = ({match}) => {
         (<Message variant='danger'>{error}</Message>) :( 
             <>
                 <Row>
-                    <h1>Latest products</h1>
+                    <h1 style={{borderRadius:"30px",boxShadow: "12px 12px 2px 1px rgba(0, 0, 255, .2)"}}> p r o d u c t s</h1>
                     {products.map( (product) => (
                         <Col key={product._id} sm={12} md={6} lg={4} xl={3} >
                         <Product product={product} />

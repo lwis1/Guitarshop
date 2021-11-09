@@ -6,6 +6,12 @@ import './index.css';
 import './bootstrap.min.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap-css-only/css/bootstrap.min.css'; 
+
+import 'mdbreact/dist/css/mdb.css';
+//import 'mdb-react-ui-kit/dist/mdb-react-ui-kit.esm.js';
+
 
 ReactDOM.render(
   <Provider store={store}>

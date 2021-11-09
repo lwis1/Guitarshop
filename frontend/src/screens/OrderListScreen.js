@@ -24,33 +24,36 @@ const OrderListScreen = ({ history}) => {
     
     return (
         <>
-            <br></br>
-            <Row className='align-items-center' style={{backgroundColor:"#FDFEFE"}}><Col></Col><Col>
-            <h1>Orders</h1>
+            <div >
+            <Row className='align-items-center'><Col></Col><Col>
+            <h2>Orders</h2>
             </Col><Col></Col></Row>
             <br></br>
             {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
-                <Table striped bordered hover responsive className='table-sm' style={{borderCollapse: "separate",borderSpacing:"0 15px"}}>
-                    <thead style={{backgroundColor:"#D5F5E3"}}>
+                <Table striped bordered hover responsive className='table-sm'style={{borderCollapse: "separate",borderSpacing:"0 5px"}}>
+                    <thead >
                         <tr>
-                            <th>ID</th>
-                            <th>USER</th>
-                            <th>DATE</th>
-                            <th>TOTAL</th>
-                            <th>PAID</th>
-                            <th>DELIVRED</th>
+                        <th style={{backgroundColor:"white" }}><i class="fas fa-passport"> I D</i></th>
+                        <th style={{backgroundColor:"silver" }}><i class="fas fa-ghost">user NAME</i></th>
+                        <th style={{backgroundColor:"white" }}><i class="fas fa-clock"> D A T E</i></th>
+                        <th style={{backgroundColor:"silver" }}><i class="fas fa-calculator"> T O T A L</i></th>
+                        <th style={{backgroundColor:"white" }}><i class="fas fa-search-dollar"> P A I D</i></th>
+                        <th style={{backgroundColor:"silver" }}><i class="fas fa-luggage-cart"> DELIVERED</i></th>
+                        <th style={{backgroundColor:"white"}}>
+                            <i className="fas fa-calendar-week"> Details</i>
+                        </th>
                         </tr>
                     </thead>
                     <tbody>
                         {orders.map((order) => (
                             <tr key={order._id}>
-                                <td>{order._id}</td>
-                                <td>{order.user && order.user.name}</td>
-                                <td>{order.createdAt.substring(0, 10)}</td>
-                                <td>${order.totalPrice}</td>
-                                <td>{order.isPaid ? (order.paidAt.substring(0, 10)) : <i className='fas fa-times' style={{color: 'red'}}></i>}</td>
-                                <td>{order.isDelevred ? (order.delevredAt.substring(0, 10)) : <i className='fas fa-times' style={{color: 'red'}}></i>}</td>
-                                <td>
+                                <td style={{backgroundColor:"white" }}>{order._id}</td>
+                                <td style={{backgroundColor:"silver" }} >{order.user && order.user.name}</td>
+                                <td style={{backgroundColor:"white" }}>{order.createdAt.substring(0, 10)}</td>
+                                <td  style={{backgroundColor:"silver" }}>${order.totalPrice}</td>
+                                <td style={{backgroundColor:"white" }}>{order.isPaid ? (order.paidAt.substring(0, 10)) : <i className='fas fa-times' style={{color: 'red'}}></i>}</td>
+                                <td  style={{backgroundColor:"silver" }}>{order.isDelevred ? (order.delevredAt.substring(0, 10)) : <i className='fas fa-times' style={{color: 'red'}}></i>}</td>
+                                <td style={{backgroundColor:"white" }}>
                                     <LinkContainer to={`/orders/${order._id}`}>
                                         <Button variant='light' className='btn-sm'>
                                             Details
@@ -62,6 +65,7 @@ const OrderListScreen = ({ history}) => {
                     </tbody>
                 </Table>
             )}
+            </div>
         </>
     )
 }

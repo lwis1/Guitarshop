@@ -6,6 +6,7 @@ import Message from '../components/Message'
 import Loader from '../components/Loader'
 import { getUserDetails , updateUserProfile} from '../actions/userAction'
 import { listMyOrders } from '../actions/orderActions'
+import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants'
 
 const ProfileScreen = ({ location, history }) => {
   const [name, setName] = useState('')
@@ -33,7 +34,8 @@ const ProfileScreen = ({ location, history }) => {
     if (!userInfo) {
       history.push('/login')
     } else {
-      if(!user.name) {
+      if(!user.name || !user || success) {
+        dispatch({type: USER_UPDATE_PROFILE_RESET})
         dispatch(getUserDetails('profile'))
         dispatch(listMyOrders())
       } else {
@@ -42,7 +44,7 @@ const ProfileScreen = ({ location, history }) => {
       }
 
     }
-  }, [dispatch, history, userInfo, user])
+  }, [dispatch, history, userInfo, user, success])
 
   const submitHandler = (e) => {
     e.preventDefault()
@@ -54,16 +56,18 @@ const ProfileScreen = ({ location, history }) => {
   }
 
   return (
-    <Row>
-      <Col md={3}>
+    <Row style={{display: "flex", justifyContent: "center"}}>
+      <Col md={8} style={{backgroundColor:"#E5E8E8 "}}>
+      <br /> 
       <h2>User Profile</h2>
+      <br /> 
       {message && <Message variant='danger'>{message}</Message>}
       {error && <Message variant='danger'>{error}</Message>}
       {success && <Message variant='success'>Profile updated</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
         <Form.Group controlId='name'>
-          <Form.Label>Name</Form.Label>
+          <Form.Label  style={{ display: "flex", justifyContent: "center", fontSize:"1.2rem", color:"orangered",textDecoration: "underline"}}>Name :</Form.Label>
           <Form.Control
             type='name'
             placeholder='Enter name'
@@ -73,7 +77,7 @@ const ProfileScreen = ({ location, history }) => {
         </Form.Group>
 
         <Form.Group controlId='email'>
-          <Form.Label>Email Address</Form.Label>
+          <Form.Label  style={{ display: "flex", justifyContent: "center", fontSize:"1.2rem", color:"orangered",textDecoration: "underline"}}>Email Address :</Form.Label>
           <Form.Control
             type='email'
             placeholder='Enter email'
@@ -83,7 +87,7 @@ const ProfileScreen = ({ location, history }) => {
         </Form.Group>
 
         <Form.Group controlId='password'>
-          <Form.Label>Password</Form.Label>
+          <Form.Label style={{ display: "flex", justifyContent: "center", fontSize:"1.2rem",color:"orangered",textDecoration: "underline"}}>Password :</Form.Label>
           <Form.Control
             type='password'
             placeholder='Enter password'
@@ -93,45 +97,52 @@ const ProfileScreen = ({ location, history }) => {
         </Form.Group>
 
         <Form.Group controlId='confirmPassword'>
-          <Form.Label>Confirm Password</Form.Label>
+          <Form.Label style={{ display: "flex", justifyContent: "center", fontSize:"1.2rem", color:"orangered",textDecoration: "underline"}}>Confirm Password :</Form.Label>
           <Form.Control
             type='password'
             placeholder='Confirm password'
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-          ></Form.Control>
+          ></Form.Control><br />
         </Form.Group>
-
-        <Button type='submit' variant='primary'>
-          Update
+        <div className="d-grid gap-2" >
+        <Button type='submit' variant='outline-success'>
+        <i class="fas fa-upload"> U p d a t e </i>
         </Button>
+        
+        </div>
       </Form>
-      </Col>
-      <Col md={9}>
-        <h2>My Order</h2>
+      </Col> 
+      <Row >
+      <Col md={12}>
+      <br/><br/>
+        <h2>My Orders</h2>
+        <br /> 
         {loadingOrders ? (
           <Loader />
         ) : errorOrders ? (
           <Message variant='danger'>{errorOrders}</Message>
         ) : (
-          <Table striped bordered hover responsive className='table-sm'>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>DATE</th>
-                <th>TOTAL</th>
-                <th>PAID</th>
-                <th>DELIVERED</th>
-                <th></th>
+          <Table striped bordered hover responsive className='table-sm'style={{borderCollapse: "separate",borderSpacing:"0 5px"}} >
+            <thead style={{backgroundColor:"orange" }}>
+              <tr >
+                <th style={{backgroundColor:"white" }}><i class="fas fa-id-card-alt"> I D</i></th>
+                <th style={{backgroundColor:"silver" }}><i class="fas fa-clock"> D A T E</i></th>
+                <th style={{backgroundColor:"white" }}><i class="fas fa-calculator"> T O T A L</i></th>
+                <th style={{backgroundColor:"silver" }}><i class="fas fa-search-dollar"> P A I D</i></th>
+                <th style={{backgroundColor:"white" }}><i class="fas fa-luggage-cart"> DELIVERED</i></th>
+                <th style={{backgroundColor:"silver"}}>
+                  <i className="fas fa-calendar-week">Details</i>
+                </th>
               </tr>
             </thead>
             <tbody>
               {orders.map((order) => (
-                <tr key={order._id}>
-                  <td>{order._id}</td>
-                  <td>{order.createdAt.substring(0, 10)}</td>
+                <tr key={order._id} style={{backgroundColor:"white" }}>
+                  <td >{order._id}</td>
+                  <td style={{backgroundColor:"#F4F4F4" }}>{order.createdAt.substring(0, 10)}</td>
                   <td>{order.totalPrice}</td>
-                  <td>
+                  <td style={{backgroundColor:"#F4F4F4" }}>
                     {order.isPaid ? (
                       order.paidAt.substring(0, 10)
                     ) : (
@@ -145,7 +156,7 @@ const ProfileScreen = ({ location, history }) => {
                       <i className='fas fa-times' style={{ color: 'red' }}></i>
                     )}
                   </td>
-                  <td>
+                  <td style={{backgroundColor:"#F4F4F4" }}>
                     <LinkContainer to={`/orders/${order._id}`}>
                       <Button className='btn-sm' variant='light'>
                         Details
@@ -157,7 +168,7 @@ const ProfileScreen = ({ location, history }) => {
             </tbody>
           </Table>
         )}
-      </Col>
+      </Col></Row>
     </Row>
   )
   

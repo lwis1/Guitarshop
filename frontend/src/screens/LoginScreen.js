@@ -30,13 +30,18 @@ const LoginScreen = ({ location, history }) => {
     }
 
     return (
-    <FormContainer>
-        <h1>Sign In</h1>
+    <FormContainer >
+        
+        <div style={{backgroundColor:"white",boxShadow: "12px 12px 2px 1px rgba(0, 0, 255, .2)",borderRadius: "30px"}}>
+        <h2 style={{borderRadius: "30px"}}>Sign In</h2>
+        <br /> 
+        <br /> 
+
         {error && <Message variant='danger'>{error}</Message>}
         {loading && <Loader />}
         <Form onSubmit={submitHandler}>
         <Form.Group controlId='email'>
-            <Form.Label>Email Address</Form.Label>
+            <Form.Label style={{ display: "flex", justifyContent: "center", fontSize:"1.2rem",color:"orangered",textDecoration: "underline"}}>Email Address</Form.Label>
             <Form.Control
             type='email'
             placeholder='Enter email'
@@ -46,7 +51,7 @@ const LoginScreen = ({ location, history }) => {
         </Form.Group>
 
         <Form.Group controlId='password'>
-            <Form.Label>Password</Form.Label>
+            <Form.Label style={{ display: "flex", justifyContent: "center", fontSize:"1.2rem",color:"orangered",textDecoration: "underline"}}>Password</Form.Label>
             <Form.Control
             type='password'
             placeholder='Enter password'
@@ -54,21 +59,27 @@ const LoginScreen = ({ location, history }) => {
             onChange={(e) => setPassword(e.target.value)}
         ></Form.Control>
         </Form.Group>
-
-        <Button type='submit' variant='primary'>
-            Sign In
+        <br /> <br />
+        <div className="d-grid gap-2" >
+        <Button type='submit' variant='outline-success'>
+        <i class="fas fa-sign-in-alt"> log in </i>
         </Button>
+        </div>
     </Form>
-
+    <br /> 
+     
     <Row className='py-3'>
-        <Col>
+        <Col style={{ display: "flex", justifyContent: "center", fontSize:"1.2rem",color:"orangered",textDecoration: "underline"}}>
             New Customer?{' '}
             <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
                 Register
             </Link>
         </Col>
         </Row>
+        </div>
+        <br />
     </FormContainer>
+    
     )
 }
 

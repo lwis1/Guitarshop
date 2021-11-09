@@ -84,6 +84,7 @@ const updateProduct = asyncHandler(async (req, res) => {
         product.description = description
         product.image = image
         product.category = category 
+        product.brand = brand 
         product.countInStock = countInStock
 
         const updatedProduct = await product.save()
@@ -130,8 +131,22 @@ const createProductReview = asyncHandler(async (req, res) => {
 // @acces Public
 
 const getTopProducts = asyncHandler(async (req, res) => {
-    const products = await Product.find({}).sort({ rating: -1}).limit(4)
+    const products = await Product.find({}).sort({ rating: -1}).limit(5)
     res.json(products)
 })
 
-export { getProducts, getProductsById, deleteProduct, createProduct, updateProduct,createProductReview,getTopProducts}
+// @desc Get Category products 
+// @route Get /api/products/category
+// @access Public
+
+const getCategoryProducts = asyncHandler(async (req, res) => {
+    const products = await Product.find({category:req.params.id})
+    if(products){ res.json(products)}
+    else {
+        res.status(404)
+        throw new Error('Product not Found')
+    }
+
+})
+
+export { getProducts, getProductsById, deleteProduct, createProduct, updateProduct,createProductReview,getTopProducts,getCategoryProducts,}

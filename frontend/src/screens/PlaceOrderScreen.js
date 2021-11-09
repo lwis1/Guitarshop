@@ -51,6 +51,7 @@ const PlaceOrderScreen = ({history}) => {
       <CheckoutSteps step1 step2 step3 step4 />
       <Row>
         <Col md={8}>
+        <div style={{backgroundColor:"white",boxShadow: "12px 12px 2px 1px rgba(0, 0, 255, .2)"}}>
           <ListGroup variant='flush'>
             <ListGroup.Item>
               <h2>Shipping</h2>
@@ -98,9 +99,11 @@ const PlaceOrderScreen = ({history}) => {
                 </ListGroup>
               )}
             </ListGroup.Item>
-            </ListGroup>            
+            </ListGroup>   
+            </div>         
         </Col>
         <Col md={4}>
+        <div style={{backgroundColor:"white",boxShadow: "12px 12px 2px 1px rgba(0, 0, 255, .2)"}}>
           <Card>
             <ListGroup variant='flush'>
               <ListGroup.Item>
@@ -145,6 +148,7 @@ const PlaceOrderScreen = ({history}) => {
               </ListGroup.Item>
             </ListGroup>
           </Card>
+          </div>
         </Col>
       </Row>
     </>
