@@ -43,7 +43,7 @@ const Sidebar = () => {
         </CDBSidebarContent>
       </CDBSidebar> 
       <Image alt="" src="/store1.jpg"   />
-      {/* <Image alt="" src="/store.jpg"   /> */}
+      <Image alt="" src="/store.jpg"   />
       <Image alt="" src="/store2.jpg"  />
       
     </div>

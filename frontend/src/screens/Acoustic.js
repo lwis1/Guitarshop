@@ -12,21 +12,18 @@ import Loader from '../components/Loader'
 import Meta from '../components/Meta'
 
 
-const Acoustic = ({match}) => {
-    
-
-    // const pageNumber= match.params.pageNumber || 1
-
+const Acoustic = () => {
     const dispatch = useDispatch()
     const productCategory = useSelector (state => state.productCategory)
     const { loading, error, products } = productCategory
     useEffect(() => {
-        dispatch(listCategoryProducts(match.params.id))
-    }, [dispatch])
+        dispatch(listCategoryProducts("acoustic"))
+    }, [dispatch,])
     return (
         <>
         <Meta />
         <Link to='/' className='btn btn-link'>Go Back</Link>
+        <h2 style={{borderRadius:"30px",boxShadow: "12px 12px 2px 1px rgba(0, 0, 255, .2)"}}> Acoustic guitars for you</h2>
         {
         loading ? 
         (<Loader></Loader>) 
@@ -34,14 +31,13 @@ const Acoustic = ({match}) => {
         (<Message variant='danger'>{error}</Message>) :( 
             <>
                 <Row>
-                    <h2 style={{borderRadius:"30px",boxShadow: "12px 12px 2px 1px rgba(0, 0, 255, .2)"}}> Acoustic guitars for you</h2>
+                    
                     {products.map( (product) => (
                         <Col key={product._id} sm={12} md={6} lg={4} xl={3} >
                         <Product product={product} />
                         </Col>
                     ))}
                 </Row>
-                {/* <Paginate pages={pages} page={page} keyword={keyword ? keyword : ''} /> */}
             </>
         )
         }
